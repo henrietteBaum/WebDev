@@ -1,0 +1,50 @@
+# Drupal with PostgreSQL
+#
+# Access via Traefik
+#
+# During initial Drupal setup,
+# Database type: PostgreSQL
+# Database name: postgres
+# Database username: postgres
+# Database password: example
+# ADVANCED OPTIONS; Database host: postgres
+
+services:
+
+  drupal:
+    image: drupal:10-apache
+    volumes:
+      - drupal1-modules:/var/www/html/modules
+      - drupal1-profiles:/var/www/html/profiles
+      - drupal1-themes:/var/www/html/themes
+      # this takes advantage of the feature in Docker that a new anonymous
+      # volume (which is what we're creating here) will be initialized with the
+      # existing content of the image at the same location
+      - drupal1-sites:/var/www/html/sites
+    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.drupal1.rule=Host(`drupal1.localhost`)"
+      - "traefik.http.routers.drupal1.entrypoints=web"
+
+    networks: 
+      - webdev-net
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: example
+    networks:
+      - webdev-net
+    restart: unless-stopped
+
+volumes:
+  drupal1-modules:
+  drupal1-profiles:
+  drupal1-themes:
+  drupal1-sites:
+
+networks:
+  webdev-net:
+    external: true

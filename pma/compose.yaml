@@ -1,0 +1,19 @@
+# compose for phpMyAdmin, all databases
+
+services:
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pma.rule=Host(`pma.localhost`)"
+      - "traefik.http.routers.pma.entrypoints=web"
+      - "traefik.http.services.pma.loadbalancer.server.port=80"
+    networks:
+      - webdev-net
+    restart: unless-stopped
+
+networks:
+  webdev-net:
+    external: true

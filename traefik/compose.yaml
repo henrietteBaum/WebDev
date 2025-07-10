@@ -1,0 +1,24 @@
+# traefik compose local restricted
+
+services:
+  traefik:
+    image: traefik:v3.4
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--api.dashboard=true"
+      - "--api.insecure=true"    # Dashboard ohne Auth, nur lokal ok
+      - "--log.level=INFO"
+    ports:
+      - "127.0.0.1:80:80"        # nur lokal zugänglich
+      - "127.0.0.1:8080:8080"    # Dashboard nur lokal
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - webdev-net
+    restart: unless-stopped
+
+networks:
+  webdev-net:
+    external: true

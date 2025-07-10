@@ -1,0 +1,19 @@
+# html static page compose.yaml
+
+services:
+  static-site:
+    image: nginx:alpine
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.htmltest.rule=Host(`site.localhost`)"
+      - "traefik.http.routers.htmltest.entrypoints=web"
+
+    networks:
+      - webdev-net
+    restart: unless-stopped
+
+networks:
+  webdev-net:
+    external: true

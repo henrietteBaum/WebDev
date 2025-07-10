@@ -1,0 +1,45 @@
+body {
+  background: #1f273f;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: cornflowerblue;
+  margin-bottom: 2rem;
+}
+
+ul.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  margin: 1rem 0;
+}
+
+.project-list a {
+  color: cornflowerblue;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.project-list a:hover {
+  color: orangered;
+}
+
+.project-list a:focus {
+  text-decoration: underline dashed orange;
+}
+

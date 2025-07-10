@@ -1,0 +1,40 @@
+# compose for wp1
+
+services:
+  db_wp1:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wp1
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+    networks:
+      - webdev-net
+    volumes:
+      - db_wp1-data:/var/lib/mysql
+    restart: unless-stopped
+
+  wordpress1:
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: db_wp1
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_DB_NAME: wp1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wp1.rule=Host(`wp1.localhost`)"
+      - "traefik.http.routers.wp1.entrypoints=web"
+      # - "traefik.http.services.wp1.loadbalancer.server.port=80"
+    depends_on:
+      - db_wp1
+    networks:
+      - webdev-net
+    restart: unless-stopped
+  
+volumes:
+  db_wp1-data:
+
+networks:
+  webdev-net:
+    external: true
