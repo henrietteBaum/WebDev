@@ -3,7 +3,7 @@
 
 Diese Sammlung enthält mehrere Webprojekte (CMS, Tools) für lokale Tests oder als Lernumgebung für die Webentwicklung, orchestriert mit Docker Compose und Traefik als Reverse Proxy.
 
-![alt text](traefik-docker.png)
+![Schaubild, Anfragen weiterleiten über Traefik](traefik-docker.png)
 
 ## Enthaltene Dienste
 
