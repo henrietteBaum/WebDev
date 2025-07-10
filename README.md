@@ -1,7 +1,7 @@
 
 # WebDev: Lokale Entwicklungsumgebung mit Docker & Traefik
 
-Diese Sammlung enthält mehrere Webprojekte (CMS, Tools) für lokale Tests und Entwicklung, orchestriert mit Docker Compose und Traefik als Reverse Proxy.
+Diese Sammlung enthält mehrere Webprojekte (CMS, Tools) für lokale Tests oder als Lernumgebung für die Webentwicklung, orchestriert mit Docker Compose und Traefik als Reverse Proxy.
 
 ## Enthaltene Dienste
 
@@ -21,10 +21,11 @@ Diese Sammlung enthält mehrere Webprojekte (CMS, Tools) für lokale Tests und E
 Die einzelnen Instanzen werden mit Docker-Compose erstellt. Alle Container laufen im selben externen Netzwerk ` webdev-net` . Die Services werden über Traefik verwaltet, der Zugriff erfolgt über ` *.localhost`. 
 
 
-## Starten & Stoppen
+## Starten und Stoppen
 
-Alle Container gemeinsam per Skript starten oder stoppen.
+Alle Container können gemeinsam per Skript gestartet oder beendet werden:
 
 ```bash
-bash start-all.sh   # Alle Container starten
-bash stop-all.sh    # Alle Container stoppen
+sudo bash start-all.sh   # Alle Container starten
+sudo bash stop-all.sh    # Alle Container stoppen
+```
