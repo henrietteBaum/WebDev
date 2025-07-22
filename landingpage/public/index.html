@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <title>Mein WebDev-Dashboard</title>
-</head>
+  <!DOCTYPE html>
+  <html lang="de">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein WebDev-Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
 <body>
   <div class="container">
-  <h1>WebDev-Projekte</h1>
-  <h2>Webentwicklung im Container</h2>
-  <ul class="project-list">
-    <li><a href="http://wp1.localhost" target="_blank">WordPress 1</a></li>
-    <li><a href="http://wp2.localhost" target="_blank">WordPress 2</a></li>
-    <li><a href="http://site.localhost" target="_blank">Static Website</a></li>
-    <li><a href="http://drupal1.localhost" target="_blank">Drupal 1</a></li>
-    <li><a href="http://joomla1.localhost" target="_blank">Joomla 1</a></li>
-    <li><a href="http://localhost:8080/dashboard" target="_blank">Traefik Dashboard</a></li>
-    <li><a href="http://pma.localhost" target="_blank">phpMyAdmin</a></li>
-  </ul>
+    <header class="header">
+      <h1>WebDev-Projekte</h1>
+      <h2>Webentwicklung im Container</h2>
+    </header>
+    <main class="content">
+      <div class="column">
+        <h3>Projekte</h3>
+        <ul class="project-list">
+          <li><a href="http://localhost:8080/dashboard" class="button" target="_blank">Traefik Dashboard</a></li>
+          <li><a href="http://pma.localhost" class="button" target="_blank">phpMyAdmin</a></li>
+          <li><a href="http://wp1.localhost" class="button" target="_blank">WordPress 1</a></li>
+          <li><a href="http://wp2.localhost" class="button" target="_blank">WordPress 2</a></li>
+          <li><a href="http://drupal1.localhost" class="button" target="_blank">Drupal 1</a></li>
+          <li><a href="http://joomla1.localhost" class="button" target="_blank">Joomla 1</a></li>
+          <li><a href="http://site.localhost" class="button" target="_blank">Static Website</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>Beschreibung</h3>
+        <p>
+          Diese Übersicht zeigt alle laufenden Container-Projekte für lokale Webentwicklung. Links führen
+          direkt zu den
+          jeweiligen Services. <br><br>
+          Rechts können Informationen aus den jeweiligen Projekt-Readmes angezeigt werden – z. B. Aufbau,
+          Konfiguration
+          oder Zugangsdaten. <br><br>
+          Die Container werden über <code>docker-compose</code> gestartet, verwaltet und per Traefik geroutet.
+        </p>
+      </div>
+    </main>
   </div>
 </body>
+
 </html>

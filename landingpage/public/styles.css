@@ -1,45 +1,95 @@
+/* Landing Page Styles */
+
+
 body {
   background: #1f273f;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
   color: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
 .container {
-  text-align: center;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.header {
+  grid-column: 1 / -1;
 }
 
 h1 {
   color: cornflowerblue;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: normal;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 2rem;
+}
+
+.column {
+  padding: 1rem;
+  background-color: #2c324a;
+  border-radius: 8px;
 }
 
 ul.project-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .project-list li {
   margin: 1rem 0;
 }
 
-.project-list a {
-  color: cornflowerblue;
+.button {
+  background-color: #242031;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  width: 85%;
+  text-align: left;
   text-decoration: none;
-  font-size: 1.25rem;
-  transition: color 0.3s ease;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
-.project-list a:hover {
-  color: orangered;
+.button:hover {
+  background-color: orangered;
 }
 
-.project-list a:focus {
-  text-decoration: underline dashed orange;
+.button:focus {
+  outline: 2px dashed orange;
 }
 
+code {
+  background-color: #333;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #ffc;
+}
+
+/* Responsives Layout für Mobilgeräte */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
