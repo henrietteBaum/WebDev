@@ -22,6 +22,9 @@ Diese Sammlung enthält mehrere Webprojekte (CMS, Tools) für lokale Tests oder 
 
 Die einzelnen Instanzen werden mit Docker-Compose erstellt. Alle Container laufen im selben externen Netzwerk ` webdev-net` . Die Services werden über Traefik verwaltet, der Zugriff erfolgt über ` *.localhost`. 
 
+Zudem ermöglicht eine Landing-Page den einfachen Aufruf der einzelnen Projekte.
+
+![screenshot landingpage](assets/landingpage.png) [screenshot landingpage](README.md)
 
 ## Starten und Stoppen
 
