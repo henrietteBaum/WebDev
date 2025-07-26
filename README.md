@@ -25,7 +25,7 @@ Die einzelnen Instanzen werden mit Docker-Compose erstellt. Alle Container laufe
 
 Zudem ermöglicht eine Landing-Page den einfachen Aufruf der einzelnen Projekte.
 
-![screenshot landingpage](assets/landingpage.png) 
+![screenshot landingpage](assets/landingpage-preview.png) 
 
 
 ## Starten und Stoppen
